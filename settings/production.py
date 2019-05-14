@@ -3,6 +3,8 @@ import dj_database_url
 
 from .base import *
 
+ALLOWED_HOSTS = ["vanatour-dev.herokuapp.com"]
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("SECRET_KEY")
 
