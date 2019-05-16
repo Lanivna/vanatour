@@ -4,6 +4,7 @@ import "./style.scss";
 import {Intent} from "@blueprintjs/core/lib/cjs/common/intent";
 import Background from "./components/Background";
 import Footer from "../../components/Footer";
+import Map from "./components/Map";
 
 class Contact extends React.Component {
   render() {
@@ -46,8 +47,8 @@ class Contact extends React.Component {
                 </div>
               </form>
             </Card>
-            <Card className="custom-card" elevation="3">
-
+            <Card className="custom-card" style={{padding: "0"}} elevation="3">
+              <Map />
             </Card>
           </div>
         </div>
