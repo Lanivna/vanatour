@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
 
@@ -9,10 +8,10 @@ from tours.models import Tour
 from tours.serializers import TourSerializer
 
 
-class TourList(generics.ListCreateAPIView):
+class TourList(generics.ListAPIView):
     queryset = Tour.objects.all()
     serializer_class = TourSerializer
-    permission_classes = AllowAny
+    permission_classes = (AllowAny,)
 
     def list(self, request):
         # Note the use of `get_queryset()` instead of `self.queryset`
