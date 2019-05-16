@@ -1,37 +1,62 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,600,800');
 
 @import "~@blueprintjs/core/lib/css/blueprint.css";
 @import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
 
 body {
     margin: 0;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.content-wrapper {
+    min-height: calc(100vh - 80px);
+    padding-bottom: 80px;
 }
 
 @media screen and (min-width: 0px) {
-    .content {
+    .content-wrapper {
         margin: 160px auto 0;
         width: 100%;
     }
 }
 
 @media screen and (min-width: 784px) {
-    .content {
+    .content-wrapper {
         margin: 80px auto 0;
         width: 100%;
     }
 }
 
 @media screen and (min-width: 888px) {
-    .content {
+    .content-wrapper {
         margin: 80px auto 0;
         width: 85%;
     }
 }
 
 @media screen and (min-width: 1080px) {
-    .content {
+    .content-wrapper {
         margin: 80px auto 0;
         width: 70%;
     }
 }
 
+.bp3-button {
+    outline: none;
+}
+
+.bp3-intent-primary {
+    background-color: #358ED7 !important;
+    border: none !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+}
+
+.switch-wrapper {
+    position: relative;
+}
+
+.switch-wrapper > div {
+    position: absolute;
+    width: 100%;
+}
