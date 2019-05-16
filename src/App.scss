@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,600,800');
 
 @import "~@blueprintjs/core/lib/css/blueprint.css";
 @import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
 
 body {
     margin: 0;
+    font-family: 'Roboto', sans-serif !important;
 }
 
 @media screen and (min-width: 0px) {
@@ -35,3 +36,22 @@ body {
     }
 }
 
+.bp3-button {
+    outline: none;
+}
+
+.bp3-intent-primary {
+    background-color: #358ED7 !important;
+    border: none !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+}
+
+.switch-wrapper {
+    position: relative;
+}
+
+.switch-wrapper > div {
+    position: absolute;
+    width: 100%;
+}
