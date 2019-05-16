@@ -1,0 +1,52 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5rem;
+  background-color: #F9F9F9;
+
+  .left, .right, .center {
+    width: 33%;
+  }
+
+  .center {
+    text-align: center;
+    span {
+      color: #595959;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  a {
+    svg {
+      height: 24px;
+      width: 24px;
+      fill: #242424;
+      opacity: 0.5;
+      margin-right: 24px;
+    }
+  }
+
+  a:hover {
+    svg {
+      opacity: 0.7;
+    }
+  }
+}
+
+
+@media screen and (min-width: 888px) {
+    footer {
+        padding: 28px 7.5%;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    footer {
+        padding: 28px 15%;
+    }
+}

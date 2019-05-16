@@ -8,29 +8,34 @@ body {
     font-family: 'Roboto', sans-serif !important;
 }
 
+.content-wrapper {
+    min-height: calc(100vh - 80px);
+    padding-bottom: 80px;
+}
+
 @media screen and (min-width: 0px) {
-    .content {
+    .content-wrapper {
         margin: 160px auto 0;
         width: 100%;
     }
 }
 
 @media screen and (min-width: 784px) {
-    .content {
+    .content-wrapper {
         margin: 80px auto 0;
         width: 100%;
     }
 }
 
 @media screen and (min-width: 888px) {
-    .content {
+    .content-wrapper {
         margin: 80px auto 0;
         width: 85%;
     }
 }
 
 @media screen and (min-width: 1080px) {
-    .content {
+    .content-wrapper {
         margin: 80px auto 0;
         width: 70%;
     }
