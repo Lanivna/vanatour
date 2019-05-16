@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route} from 'react-router-dom';
+import { BrowserRouter, Route} from 'react-router-dom';
+import { AnimatedSwitch } from 'react-router-transition';
 import Navbar from "./components/Navbar";
 
 import About from "./scenes/About";
@@ -18,14 +19,19 @@ class App extends React.Component {
         <div>
           <Navbar />
             <div className="content">
-              <Switch>
+              <AnimatedSwitch
+                atEnter={{ opacity: 0 }}
+                atLeave={{ opacity: 0 }}
+                atActive={{ opacity: 1 }}
+                className="switch-wrapper"
+              >
                 <Route exact path="/" component={Home} />
                 <Route path="/visas" component={Visas} />
                 <Route path="/plane-tickets" component={PlaneTickets} />
                 <Route path="/agencies" component={Agencies} />
                 <Route path="/about" component={About} />
                 <Route path="/contact" component={Contact} />
-              </Switch>
+              </AnimatedSwitch>
             </div>
         </div>
       </BrowserRouter>

@@ -1,8 +1,16 @@
-import React from "react";
+import React, {Fragment} from "react";
+import Footer from "../../components/Footer";
 
 class Visas extends React.Component {
   render() {
-    return <h1>Visas</h1>
+    return (
+      <Fragment>
+        <div className="content-wrapper">
+          <h1>Visas</h1>
+        </div>
+        <Footer />
+      </Fragment>
+    )
   }
 }
 
