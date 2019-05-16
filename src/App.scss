@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+
+@import "~@blueprintjs/core/lib/css/blueprint.css";
+@import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
+
+body {
+    margin: 0;
+}
+
+@media screen and (min-width: 0px) {
+    .content {
+        margin: 160px auto 0;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 784px) {
+    .content {
+        margin: 80px auto 0;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 888px) {
+    .content {
+        margin: 80px auto 0;
+        width: 85%;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    .content {
+        margin: 80px auto 0;
+        width: 70%;
+    }
+}
+
