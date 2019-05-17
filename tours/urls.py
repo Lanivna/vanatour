@@ -3,5 +3,5 @@ from django.urls import path
 from tours.views import TourList
 
 urlpatterns = [
-    path("", TourList.as_view())
+    path("api/v1/", TourList.as_view())
     ]
