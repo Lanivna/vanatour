@@ -6,6 +6,4 @@ from tours.models import Tour
 class TourSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tour
-        fields = '__all__'
-
-
+        fields = "__all__"
