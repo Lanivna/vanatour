@@ -8,6 +8,9 @@ class Country(models.Model):
     def __str__(self):
         return self.country_name
 
+    class Meta:
+        verbose_name_plural = "countries"
+
 
 class Hotel(models.Model):
     hotel_name = models.CharField(max_length=255)
