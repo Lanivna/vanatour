@@ -16,23 +16,21 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
-          <Navbar />
-            <div className="content">
-              <AnimatedSwitch
-                atEnter={{ opacity: 0 }}
-                atLeave={{ opacity: 0 }}
-                atActive={{ opacity: 1 }}
-                className="switch-wrapper"
-              >
-                <Route exact path="/" component={Home} />
-                <Route path="/visas" component={Visas} />
-                <Route path="/plane-tickets" component={PlaneTickets} />
-                <Route path="/agencies" component={Agencies} />
-                <Route path="/about" component={About} />
-                <Route path="/contact" component={Contact} />
-              </AnimatedSwitch>
-            </div>
+        <Navbar />
+        <div className="content">
+          <AnimatedSwitch
+            atEnter={{ opacity: 0 }}
+            atLeave={{ opacity: 0 }}
+            atActive={{ opacity: 1 }}
+            className="switch-wrapper"
+          >
+            <Route exact path="/" component={Home} />
+            <Route path="/visas" component={Visas} />
+            <Route path="/plane-tickets" component={PlaneTickets} />
+            <Route path="/agencies" component={Agencies} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+          </AnimatedSwitch>
         </div>
       </BrowserRouter>
     );
