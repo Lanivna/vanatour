@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import {bindActionCreators} from "redux";
 import {Callout, NonIdealState, Spinner} from "@blueprintjs/core";
 import {Intent} from "@blueprintjs/core/lib/cjs/common/intent";
+import Tour from "../../components/Tour";
 
 class Home extends React.Component {
   constructor(props) {
@@ -18,7 +19,6 @@ class Home extends React.Component {
 
   render() {
     const {error, loading, tours} = this.props;
-    console.log(tours);
 
     return (
       <Fragment>
@@ -33,15 +33,7 @@ class Home extends React.Component {
           }
           { !loading && tours.length > 0 &&
             tours.map(tour => (
-              <div key={tour["tour_name"]}>
-                <h4>Tour name: {tour["tour_name"]}</h4>
-                <p>Price: {tour["price"]}</p>
-                <p>Place: {tour["place"]}</p>
-                <p>Departure date: {tour["departure_date"]}</p>
-                <p>Departure place: {tour["departure_place"]}</p>
-                <p>Hotel name: {tour["hotel"][0]["hotel_name"]}</p>
-                <p>Country: {tour["country"][0]["country_name"]}</p>
-              </div>
+              <Tour key={tour["tour_name"]} tour={tour}/>
             ))
           }
           { !loading && tours.length === 0 &&
