@@ -1,0 +1,134 @@
+.bp3-overlay-enter {
+  opacity: 0;
+}
+.bp3-overlay-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.bp3-overlay-exit {
+  opacity: 1;
+}
+.bp3-overlay-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.tour-card {
+  width: 90vw;
+  height: 90vh;
+  top: 50%;
+  left: 50%;
+  margin-top: -45vh;
+  margin-left: -45vw;
+  padding: 48px 100px !important;
+
+  .text-separated {
+    margin: 0;
+    border-top: 1px solid #BDC6CF;
+    border-bottom: 1px solid #BDC6CF;
+    line-height: 2;
+    text-align: justify;
+
+    &:nth-child(2) {
+      border: none;
+    }
+  }
+
+  .close-icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
+
+  .tour-card-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .left {
+      color: #595959;
+      flex: 1 1 0;
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h1.bp3-heading {
+        font-weight: 300;
+        color: #595959;
+        font-size: 52px;
+      }
+
+      h5.bp3-heading {
+        font-weight: 400;
+        color: #358ED7;
+        font-size: 18px;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+    }
+
+    .right {
+      width: 100%;
+      height: 100%;
+      flex: 1 1 0;
+
+      .right-wrapper {
+        height: 100%;
+        width: 75%;
+        margin: 0 0 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        .main-picture {
+          flex-grow: 0;
+          max-height: 75%;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: none;
+            object-position: 50% 50%;
+          }
+        }
+
+        .additional-pictures {
+          padding-top: 7.5px;
+          max-height: 25%;
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: flex-start;
+
+          img {
+            width: calc(100% / 3);
+            object-fit: contain;
+            padding: 0 5px;
+
+            &:first-child {
+              padding-left: 0;
+            }
+
+            &:nth-child(2) {
+              padding: 0 2.5px;
+            }
+
+            &:last-child {
+              padding-right: 0;
+            }
+          }
+        }
+      }
+    }
+
+    button {
+      min-height: 42px !important;
+      padding: 5px 20px !important;
+      outline: none;
+    }
+  }
+}

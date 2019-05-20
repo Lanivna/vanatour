@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter } from 'react-router-dom'
+import configureStore from "./store";
 
 ReactDOM.render((
-  <BrowserRouter>
+  <Provider store={configureStore()}>
     <App />
-  </BrowserRouter>
+  </Provider>
 ), document.getElementById('root'));
 
 // If you want your Fapp to work offline and load faster, you can change
