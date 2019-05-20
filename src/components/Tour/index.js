@@ -23,6 +23,12 @@ class Tour extends React.Component {
     const {isOpen} = this.state;
     const {tour} = this.props;
 
+    const hotelPlural = tour["hotel"].length > 1;
+    const hotelNames = tour["hotel"].map(h => h["hotel_name"]).join();
+    const countryPlural = tour["country"].length > 1;
+    const countryNames = tour["country"].map(h => h["country_name"]).join();
+    const days = tour["days_count"];
+
     return (
       <Fragment>
         <a onClick={this.toggleOverlay}>{tour["id"]}. {tour["tour_name"]}</a>
@@ -36,6 +42,11 @@ class Tour extends React.Component {
                   <H5>₴{tour["price"]}</H5>
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium commodi debitis, distinctio, et mollitia possimus qui, quia reiciendis sapiente sequi sunt ut voluptas voluptatum. Consequuntur deleniti earum est laudantium molestiae repellat, sed sequi velit. Aliquid assumenda cupiditate deleniti dolor dolore exercitationem illo, ipsa iusto laboriosam minus nihil perspiciatis porro, possimus quos recusandae, sequi ut velit vero voluptatem voluptates. Consequatur eum facilis ipsam itaque laborum nam neque, nisi nulla provident quae quibusdam quis reiciendis similique? Animi asperiores blanditiis consequatur culpa eaque earum, fugiat minus numquam quaerat vero. Consequuntur cumque dolore, et illum magnam nesciunt nihil nulla officiis quas reiciendis, repellat soluta!</p>
+                <div>
+                  <p className="text-separated">{hotelPlural ? 'Готели:' : 'Готель:'} {hotelNames}</p>
+                  <p className="text-separated">{countryPlural ? 'Страны:' : 'Страна:'} {countryNames}</p>
+                  <p className="text-separated">Количество дней: {days}</p>
+                </div>
                 <Link onClick={this.toggleOverlay} to="/contact">
                   <Button intent="primary">СВЯЗАТЬСЯ С НАМИ</Button>
                 </Link>
