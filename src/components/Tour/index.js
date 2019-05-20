@@ -1,7 +1,9 @@
 import React, {Fragment} from "react";
+import _ from 'lodash';
 import {Button, Card, H1, H5, Icon, Overlay} from "@blueprintjs/core";
 import {Elevation} from "@blueprintjs/core/lib/cjs/common/elevation";
 import {Link} from "react-router-dom";
+
 import "./style.scss";
 
 class Tour extends React.Component {
@@ -23,10 +25,9 @@ class Tour extends React.Component {
     const {isOpen} = this.state;
     const {tour} = this.props;
 
-    const hotelPlural = tour["hotel"].length > 1;
-    const hotelNames = tour["hotel"].map(h => h["hotel_name"]).join();
-    const countryPlural = tour["country"].length > 1;
-    const countryNames = tour["country"].map(h => h["country_name"]).join();
+    const hotels = _.get(tour, "hotel", []);
+    const hotelNames = hotels.map(h => h["hotel_name"]).join();
+
     const days = tour["days_count"];
 
     return (
@@ -43,8 +44,9 @@ class Tour extends React.Component {
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium commodi debitis, distinctio, et mollitia possimus qui, quia reiciendis sapiente sequi sunt ut voluptas voluptatum. Consequuntur deleniti earum est laudantium molestiae repellat, sed sequi velit. Aliquid assumenda cupiditate deleniti dolor dolore exercitationem illo, ipsa iusto laboriosam minus nihil perspiciatis porro, possimus quos recusandae, sequi ut velit vero voluptatem voluptates. Consequatur eum facilis ipsam itaque laborum nam neque, nisi nulla provident quae quibusdam quis reiciendis similique? Animi asperiores blanditiis consequatur culpa eaque earum, fugiat minus numquam quaerat vero. Consequuntur cumque dolore, et illum magnam nesciunt nihil nulla officiis quas reiciendis, repellat soluta!</p>
                 <div>
-                  <p className="text-separated">{hotelPlural ? 'Готели:' : 'Готель:'} {hotelNames}</p>
-                  <p className="text-separated">{countryPlural ? 'Страны:' : 'Страна:'} {countryNames}</p>
+                  { hotels.length > 0 &&
+                    <p className="text-separated">{hotels.length > 1 ? 'Готели:' : 'Готель:'} {hotelNames}</p>
+                  }
                   <p className="text-separated">Количество дней: {days}</p>
                 </div>
                 <Link onClick={this.toggleOverlay} to="/contact">
