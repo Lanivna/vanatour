@@ -20,7 +20,19 @@
   left: 50%;
   margin-top: -45vh;
   margin-left: -45vw;
-  padding: 75px 100px !important;
+  padding: 48px 100px !important;
+
+  .text-separated {
+    margin: 0;
+    border-top: 1px solid #BDC6CF;
+    border-bottom: 1px solid #BDC6CF;
+    line-height: 2;
+    text-align: justify;
+
+    &:nth-child(2) {
+      border: none;
+    }
+  }
 
   .close-icon {
     position: absolute;
