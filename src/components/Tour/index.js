@@ -25,10 +25,11 @@ class Tour extends React.Component {
     const {isOpen} = this.state;
     const {tour} = this.props;
 
-    const hotels = _.get(tour, "hotel", []);
-    const hotelNames = hotels.map(h => h["hotel_name"]).join();
+    const places = _.get(tour, "place", []);
+    const placesCountryString = places.map(p => [p["place_name"], p["country"]["country_name"]].join(", ")).join(" | ");
 
     const days = tour["days_count"];
+    const departure_date = tour["departure_date"];
 
     return (
       <Fragment>
@@ -44,10 +45,11 @@ class Tour extends React.Component {
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium commodi debitis, distinctio, et mollitia possimus qui, quia reiciendis sapiente sequi sunt ut voluptas voluptatum. Consequuntur deleniti earum est laudantium molestiae repellat, sed sequi velit. Aliquid assumenda cupiditate deleniti dolor dolore exercitationem illo, ipsa iusto laboriosam minus nihil perspiciatis porro, possimus quos recusandae, sequi ut velit vero voluptatem voluptates. Consequatur eum facilis ipsam itaque laborum nam neque, nisi nulla provident quae quibusdam quis reiciendis similique? Animi asperiores blanditiis consequatur culpa eaque earum, fugiat minus numquam quaerat vero. Consequuntur cumque dolore, et illum magnam nesciunt nihil nulla officiis quas reiciendis, repellat soluta!</p>
                 <div>
-                  { hotels.length > 0 &&
-                    <p className="text-separated">{hotels.length > 1 ? 'Готели:' : 'Готель:'} {hotelNames}</p>
-                  }
+                  <p className="text-separated">Дата: {departure_date}</p>
                   <p className="text-separated">Количество дней: {days}</p>
+                  { places.length > 0 &&
+                    <p className="text-separated">Город / Страна: {placesCountryString}</p>
+                  }
                 </div>
                 <Link onClick={this.toggleOverlay} to="/contact">
                   <Button intent="primary">СВЯЗАТЬСЯ С НАМИ</Button>
