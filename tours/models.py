@@ -12,8 +12,18 @@ class Country(models.Model):
         verbose_name_plural = "countries"
 
 
+class Place(models.Model):
+    place_name = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.place_name
+
+
 class Hotel(models.Model):
     hotel_name = models.CharField(max_length=255)
+    place = models.ForeignKey(Place, on_delete=models.CASCADE)
     stars = models.PositiveSmallIntegerField(blank=True, null=True)
 
     def __str__(self):
@@ -23,12 +33,12 @@ class Hotel(models.Model):
 class Tour(models.Model):
     tour_name = models.CharField(max_length=255)
     price = models.FloatField()
-    country = models.ManyToManyField(Country)
-    place = models.CharField(max_length=255, blank=True, null=True)
-    hotel = models.ManyToManyField(Hotel)
+    place = models.ManyToManyField(Place, blank=True)
+    hotel = models.ManyToManyField(Hotel, blank=True)
     departure_date = models.DateField()
     days_count = models.PositiveSmallIntegerField()
     departure_place = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.tour_name
