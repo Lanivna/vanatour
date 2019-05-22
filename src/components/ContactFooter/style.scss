@@ -1,0 +1,44 @@
+.contact-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+  height: 200px;
+  width: 100%;
+  position: absolute;
+  bottom: 80px;
+
+  .address-block, .phone-block, .email-block {
+    flex: 1 1 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .block-content {
+      min-height: 60px;
+    }
+
+    .block-header {
+      font-weight: 500;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (min-width: 888px) {
+  .contact-footer {
+    padding: 28px 7.5%;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .contact-footer {
+    padding: 28px 15%;
+  }
+}
