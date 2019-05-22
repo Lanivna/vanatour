@@ -10,7 +10,6 @@ class Footer extends React.Component {
         <div className="left">
           <a href="#"><FaFacebookF /></a>
           <a href="#"><FaTwitter /></a>
-          <a href="#"><FaVk /></a>
           <a href="#"><FaInstagram /></a>
           <a href="#"><FaGoogle /></a>
         </div>
