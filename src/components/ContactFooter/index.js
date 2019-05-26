@@ -25,7 +25,7 @@ class ContactFooter extends React.Component {
         </div>
         <div className="email-block">
           <Icon icon="envelope" color="#595959" />
-          <span className="block-header">Email</span>
+          <span className="block-header">E-mail</span>
           <div className="block-content">
             <a href="mailto:office@vanatour.com.ua">office@vanatour.com.ua</a>
             <br/>

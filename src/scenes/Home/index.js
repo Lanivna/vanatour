@@ -1,52 +1,57 @@
 import React, {Fragment} from "react";
-import Footer from "../../components/Footer";
 import {getTours} from "../../actions/Tour";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {Callout, NonIdealState, Spinner} from "@blueprintjs/core";
-import {Intent} from "@blueprintjs/core/lib/cjs/common/intent";
-import Tour from "../../components/Tour";
+import Tours from "../../components/Tours";
+import Footer from "../../components/Footer";
+import ContactFooter from "../../components/ContactFooter";
+import MainBackground from "./components/MainBackground";
+import {H1} from "@blueprintjs/core";
+import Select from "react-select";
+
+import logo from "./media/cocos-test.png";
+import "./style.scss";
+import ServicesBackground from "./components/ServicesBackground";
+
+const options = [
+  { value: 'ukraine', label: 'Украина' },
+  { value: 'armenia', label: 'Армения' },
+  { value: 'hungary', label: 'Венгрия' }
+];
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  componentDidMount() {
-    this.props.getTours();
-  }
-
   render() {
-    const {error, loading, tours} = this.props;
-
     return (
       <Fragment>
-        <div className="content-wrapper">
-          { error &&
-            <Callout intent={Intent.DANGER}>
-              Возникла ошибка ({error})
-            </Callout>
-          }
-          { loading &&
-            <Spinner />
-          }
-          { !loading && tours.length > 0 &&
-            tours.map(tour => (
-              <Tour key={tour["tour_name"]} tour={tour}/>
-            ))
-          }
-          { !loading && tours.length === 0 &&
-            <NonIdealState
-              className="empty-list"
-              icon="warning-sign"
-              title="Нет доступных туров"
-            />
-          }
+        <div className="content-wrapper home-page">
+          <div className="main-section">
+            <MainBackground />
+            <div className="main-content">
+              <div className="left">
+                <div className="left-wrapper">
+                  <H1>Найдите свой<br/>идеальный тур</H1>
+                  <p>Great things in business are never done by one person. They're done by a team of people.</p>
+                  <Select
+                    options={options}
+                    placeholder="Страна направления"
+                  />
+                </div>
+              </div>
+              <div className="right">
+                Logo will be here.
+                {/*<img src={logo} alt="Logo" />*/}
+              </div>
+            </div>
+          </div>
+          <div className="services-section">
+            <Tours />
+          </div>
+
         </div>
+        <ContactFooter />
         <Footer />
       </Fragment>
-    )
+    );
   }
 }
 
