@@ -1,0 +1,44 @@
+.tour-small-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 100px;
+
+
+  a {
+    width: calc(25% - 1em);
+    flex: 0 1 calc(25% - 1em);
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    .tour-small-card {
+      width: 100%;
+      padding: 0;
+
+      img {
+        width: 100%;
+      }
+
+      .small-card-content {
+        text-align: center;
+        padding: 10px 10px 18px 10px;
+        color: #595959;
+
+        h5.bp3-heading {
+          font-weight: 400;
+          font-size: 20px;
+        }
+
+        .card-price-button {
+          width: 45%;
+          color: #358ED7;
+          background-color: white;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

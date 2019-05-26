@@ -33,7 +33,16 @@ class Tour extends React.Component {
 
     return (
       <Fragment>
-        <a onClick={this.toggleOverlay}>{tour["id"]}. {tour["tour_name"]}</a>
+        <a onClick={this.toggleOverlay}>
+          <Card className="tour-small-card" interactive>
+            <img src="https://dummyimage.com/555x555" alt="placeholder"/>
+            <div className="small-card-content">
+              <H5>{tour["tour_name"]}</H5>
+              <p>Education costs money. But then so does ignorance</p>
+              <Button className="card-price-button">₴{tour["price"]}</Button>
+            </div>
+          </Card>
+        </a>
         <Overlay isOpen={isOpen} onClose={this.toggleOverlay}>
           <Card className="tour-card" elevation={Elevation.FOUR}>
             <Icon icon="cross" color="#707070" className="close-icon" onClick={this.toggleOverlay} />
@@ -43,7 +52,7 @@ class Tour extends React.Component {
                   <H1>{tour["tour_name"]}</H1>
                   <H5>₴{tour["price"]}</H5>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium commodi debitis, distinctio, et mollitia possimus qui, quia reiciendis sapiente sequi sunt ut voluptas voluptatum. Consequuntur deleniti earum est laudantium molestiae repellat, sed sequi velit. Aliquid assumenda cupiditate deleniti dolor dolore exercitationem illo, ipsa iusto laboriosam minus nihil perspiciatis porro, possimus quos recusandae, sequi ut velit vero voluptatem voluptates. Consequatur eum facilis ipsam itaque laborum nam neque, nisi nulla provident quae quibusdam quis reiciendis similique? Animi asperiores blanditiis consequatur culpa eaque earum, fugiat minus numquam quaerat vero. Consequuntur cumque dolore, et illum magnam nesciunt nihil nulla officiis quas reiciendis, repellat soluta!</p>
+                <p>{tour["description"]}</p>
                 <div>
                   <p className="text-separated">Дата: {departure_date}</p>
                   <p className="text-separated">Количество дней: {days}</p>

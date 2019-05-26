@@ -38,7 +38,7 @@ class Tour(models.Model):
     departure_date = models.DateField()
     days_count = models.PositiveSmallIntegerField()
     departure_place = models.CharField(max_length=255)
-    description = models.TextField(blank=True, null=True)
+    description = models.TextField()
 
     def __str__(self):
         return self.tour_name

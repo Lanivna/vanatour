@@ -2,7 +2,6 @@ import React, {Fragment} from "react";
 import {getTours} from "../../actions/Tour";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import Tours from "../../components/Tours";
 import Footer from "../../components/Footer";
 import ContactFooter from "../../components/ContactFooter";
 import MainBackground from "./components/MainBackground";
@@ -41,10 +40,7 @@ class Home extends React.Component {
               </div>
             </div>
           </div>
-          <div className="services-section">
-            <Tours />
-          </div>
-
+          <div className="services-section" />
         </div>
         <ContactFooter />
         <Footer />
