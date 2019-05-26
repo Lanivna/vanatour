@@ -9,9 +9,7 @@ import MainBackground from "./components/MainBackground";
 import {H1} from "@blueprintjs/core";
 import Select from "react-select";
 
-import logo from "./media/cocos-test.png";
 import "./style.scss";
-import ServicesBackground from "./components/ServicesBackground";
 
 const options = [
   { value: 'ukraine', label: 'Украина' },
