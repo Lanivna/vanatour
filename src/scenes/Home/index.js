@@ -1,23 +1,31 @@
 import React, {Fragment} from "react";
-import {getTours} from "../../actions/Tour";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import Footer from "../../components/Footer";
 import ContactFooter from "../../components/ContactFooter";
 import MainBackground from "./components/MainBackground";
-import {H1} from "@blueprintjs/core";
+import {H1, Spinner} from "@blueprintjs/core";
 import Select from "react-select";
+import {getAvailableCountries, } from "../../actions/Tour";
 
 import "./style.scss";
 
-const options = [
-  { value: 'ukraine', label: 'Украина' },
-  { value: 'armenia', label: 'Армения' },
-  { value: 'hungary', label: 'Венгрия' }
-];
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {selectedOption: ""}
+  }
+
+  componentDidMount() {
+    this.props.getAvailableCountries();
+  }
+
   render() {
+    const {selectedOption} = this.state;
+    const {loading, availableCountries} = this.props;
+
     return (
       <Fragment>
         <div className="content-wrapper home-page">
@@ -28,10 +36,21 @@ class Home extends React.Component {
                 <div className="left-wrapper">
                   <H1>Найдите свой<br/>идеальный тур</H1>
                   <p>Great things in business are never done by one person. They're done by a team of people.</p>
-                  <Select
-                    options={options}
-                    placeholder="Страна направления"
-                  />
+                  {loading
+                    ? <Spinner />
+                    : <Select
+                      options={availableCountries.map(c => ({value: c, label: c}))}
+                      placeholder="Страна направления"
+                      value={selectedOption}
+                      onChange={(selectedOption) => {
+                        this.setState({selectedOption});
+                        this.props.history.push({
+                          pathname: "tours/",
+                          state: {country: selectedOption}
+                        });
+                      }}
+                    />
+                  }
                 </div>
               </div>
               <div className="right">
@@ -52,12 +71,12 @@ class Home extends React.Component {
 const mapStateToProps = state => ({
   loading: state.tourReducer.loading,
   error: state.tourReducer.error,
-  tours: state.tourReducer.tours,
+  availableCountries: state.tourReducer.availableCountries,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
-    getTours
+    getAvailableCountries
   },
   dispatch,
 );

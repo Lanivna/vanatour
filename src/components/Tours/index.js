@@ -1,7 +1,8 @@
 import React, {Fragment} from "react";
-import {getTours} from "../../actions/Tour";
+import {withRouter} from "react-router-dom";
 import { connect } from "react-redux";
 import {bindActionCreators} from "redux";
+import {getTours} from "../../actions/Tour";
 import {Callout, NonIdealState, Spinner} from "@blueprintjs/core";
 import {Intent} from "@blueprintjs/core/lib/cjs/common/intent";
 import Tour from "../../components/Tour";
@@ -14,7 +15,12 @@ class Tours extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getTours();
+    if (this.props.location.state != null) {
+      const country = this.props.location.state["country"]["value"];
+      this.props.getTours(country);
+    } else {
+      this.props.getTours();
+    }
   }
 
   render() {
@@ -62,7 +68,7 @@ const mapDispatchToProps = dispatch => bindActionCreators(
   dispatch,
 );
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Tours)
+)(Tours))
