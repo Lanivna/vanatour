@@ -33,7 +33,16 @@ class Tour extends React.Component {
 
     return (
       <Fragment>
-        <a onClick={this.toggleOverlay}>{tour["id"]}. {tour["tour_name"]}</a>
+        <a onClick={this.toggleOverlay}>
+          <Card className="tour-small-card" interactive>
+            <img src="https://dummyimage.com/555x555" alt="placeholder"/>
+            <div className="small-card-content">
+              <H5>{tour["tour_name"]}</H5>
+              <p>Education costs money. But then so does ignorance</p>
+              <Button className="card-price-button">₴{tour["price"]}</Button>
+            </div>
+          </Card>
+        </a>
         <Overlay isOpen={isOpen} onClose={this.toggleOverlay}>
           <Card className="tour-card" elevation={Elevation.FOUR}>
             <Icon icon="cross" color="#707070" className="close-icon" onClick={this.toggleOverlay} />

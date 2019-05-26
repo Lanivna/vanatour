@@ -9,6 +9,7 @@ import Home from "./scenes/Home";
 import Visas from "./scenes/Visas";
 import PlaneTickets from "./scenes/PlaneTickets";
 import Agencies from "./scenes/Agencies";
+import ShowTours from "./scenes/ShowTours";
 
 import "./App.scss";
 
@@ -25,11 +26,11 @@ class App extends React.Component {
             className="switch-wrapper"
           >
             <Route exact path="/" component={Home} />
-            <Route path="/visas" component={Visas} />
             <Route path="/plane-tickets" component={PlaneTickets} />
             <Route path="/agencies" component={Agencies} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
+            <Route path="/tours" component={ShowTours} />
           </AnimatedSwitch>
         </div>
       </BrowserRouter>

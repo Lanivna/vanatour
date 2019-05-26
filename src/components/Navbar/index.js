@@ -16,7 +16,7 @@ class NavbarCustom extends React.Component {
 
           <Navbar.Group align={Alignment.RIGHT}>
             <Link to="/"><Button className="bp3-minimal" text="Главная" /></Link>
-            <Link to="/visas"><Button className="bp3-minimal" text="Визы" /></Link>
+            <Link to="/tours"><Button className="bp3-minimal" text="Туры" /></Link>
             <Link to="/plane-tickets"><Button className="bp3-minimal" text="Авиабилеты" /></Link>
             <Link to="/agencies"><Button className="bp3-minimal" text="Агенствам" /></Link>
             <Link to="/about"><Button className="bp3-minimal" text="О нас" /></Link>
